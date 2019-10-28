@@ -14,7 +14,6 @@
 
 int _printf(const char *format, ...)
 {
-
 	int i = 0, cont, z;
 	char arg, *s;
 
@@ -27,25 +26,25 @@ int _printf(const char *format, ...)
 	}
 	while (i < cont && cont != 0)
 	{
-		if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c'))
+		if (format[i] == '%')
 		{
 			switch (format[i + 1])
 			{
 			case 'c':
 			arg = va_arg(valist, int);
-			if (arg != '\0')
-			{
 			write(1, &arg, 1);
 			i++;
 			break;
-			}
-			return (-1);
 			case 's':
 			s = va_arg(valist, char*);
 			for (z = 0; s[z] != '\0'; z++)
 				write(1, &s[z], 1);
 			i++;
-			write(1, '\0', 1);
+			break;
+			case '%':
+			arg = '%';
+			write(1, &arg, 1);
+			i++;
 			break;
 			default:
 			break;
@@ -53,11 +52,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			write(1, &format[i], 1);
-		}
-		i++;
+		write(1, &format[i], 1);
+	}
+	i++;
 	}
 	va_end(valist);
 	return (cont);
 }
-
