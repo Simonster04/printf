@@ -32,15 +32,20 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 			case 'c':
-	arg = va_arg(valist, int);
+			arg = va_arg(valist, int);
+			if (arg != '\0')
+			{
 			write(1, &arg, 1);
 			i++;
 			break;
+			}
+			return (-1);
 			case 's':
 			s = va_arg(valist, char*);
 			for (z = 0; s[z] != '\0'; z++)
 				write(1, &s[z], 1);
 			i++;
+			write(1, '\0', 1);
 			break;
 			default:
 			break;
