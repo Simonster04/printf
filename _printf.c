@@ -18,13 +18,14 @@ int _printf(const char *format, ...)
 	char arg, *s;
 
 	va_list valist;
-
+if (format == NULL)
+{return (-1); }
 	va_start(valist, format);
 
 	for (cont = 0; format[cont] != '\0'; cont++)
 	{
 	}
-	while (i < cont && cont != 0)
+	while (i < cont)
 	{
 		if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c' || format[i + 1] == '%'))
 		{
@@ -37,6 +38,8 @@ int _printf(const char *format, ...)
 			break;
 			case 's':
 			s = va_arg(valist, char*);
+			if (s == NULL)
+			{return (-1); }
 			for (z = 0; s[z] != '\0'; z++)
 				write(1, &s[z], 1);
 			i++;
