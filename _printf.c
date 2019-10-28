@@ -27,8 +27,12 @@ if (format == NULL)
 	}
 	while (i < cont)
 	{
-		if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c' || format[i + 1] == '%'))
+		if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c'
+			|| format[i + 1] == '%' || format[i + 1] == ' '))
 		{
+			while (format[i + 1] == ' ')
+			{i++; }
+
 			switch (format[i + 1])
 			{
 			case 'c':
