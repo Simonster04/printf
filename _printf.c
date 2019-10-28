@@ -14,7 +14,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, cont, z;
+	int i = 0, cont, bytes = 0;
 	char arg, *s;
 
 	va_list valist;
@@ -27,8 +27,6 @@ if (format == NULL)
 	}
 	while (i < cont)
 	{
-		if (format[i] == '%')
-		{
 		if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c'
 			|| format[i + 1] == '%' || format[i + 1] == ' '))
 		{
@@ -42,26 +40,25 @@ if (format == NULL)
 			{
 			write(1, &arg, 1);
 			i++;
+			bytes += 1;
 			break; }
 			else
 			{return (-1); }
 			case 's':
 			s = va_arg(valist, char*);
-			for (z = 0; s[z] != '\0'; z++)
-				write(1, &s[z], 1);
+			for (bytes = 0; s[bytes] != '\0'; bytes++)
+				write(1, &s[bytes], 1);
 			i++;
 			break;
 			case '%':
 			arg = '%';
 			write(1, &arg, 1);
 			i++;
+			bytes += 1;
 			break;
 			default:
 			break;
 			}
-		}
-		else
-		{return (-1); }
 		}
 		else
 		{
@@ -70,5 +67,5 @@ if (format == NULL)
 	i++;
 	}
 	va_end(valist);
-	return (cont);
+	return (bytes);
 }
