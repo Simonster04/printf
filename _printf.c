@@ -27,23 +27,26 @@ if (format == NULL)
 	}
 	while (i < cont)
 	{
-		if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c'
-			|| format[i + 1] == '%' || format[i + 1] == ' '))
+		if (format[i] == '%')
+		{
+		if (format[i + 1] == 's' || format[i + 1] == 'c'
+			|| format[i + 1] == '%' || format[i + 1] == ' ')
 		{
 			while (format[i + 1] == ' ')
 			{i++; }
-
 			switch (format[i + 1])
 			{
 			case 'c':
 			arg = va_arg(valist, int);
+			if (arg != '\0')
+			{
 			write(1, &arg, 1);
 			i++;
-			break;
+			break; }
+			else
+			{return (-1); }
 			case 's':
 			s = va_arg(valist, char*);
-			if (s == NULL)
-			{return (-1); }
 			for (z = 0; s[z] != '\0'; z++)
 				write(1, &s[z], 1);
 			i++;
@@ -56,6 +59,9 @@ if (format == NULL)
 			default:
 			break;
 			}
+		}
+		else
+		{return (-1); }
 		}
 		else
 		{
