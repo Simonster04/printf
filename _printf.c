@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 	}
 	while (i < cont && cont != 0)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c' || format[i + 1] == 'c'))
 		{
 			switch (format[i + 1])
 			{
