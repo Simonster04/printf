@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 			arg = va_arg(valist, int);
-			write(1, &arg, 1);
+			_putchar(arg);
 			i++;
 			bytes++;
 			break;
@@ -42,20 +42,17 @@ int _printf(const char *format, ...)
 				if (s)
 				{
 				for (bytes = 0; s[bytes]; bytes++)
-				{
-					write(1, &s[bytes], 1);
-				}
-				bytes++;
+					_putchar(s[bytes]);
 				}
 				else
 				{
-					write(1, &null, 1);
+					_putchar(null);
 				}
 			i++;
 			break;
 			case '%':
 			arg = '%';
-				write(1, &arg, 1);
+				_putchar(arg);
 			i++;
 			bytes++;
 			break;
@@ -64,13 +61,14 @@ int _printf(const char *format, ...)
 			break;
 			default:
 			arg = '%';
-			write(1, &arg, 1);
+			_putchar(arg);
+			bytes++;
 			break;
 			}
 		}
 		else
 		{
-			write(1, &format[i], 1);
+			_putchar(format[i]);
 			bytes++;
 		}
 	}
