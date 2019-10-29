@@ -3,9 +3,9 @@
 
 int main ()
 {
- int a = 0;
-
-a = printf("hola\n");
+/* int a = 0;
+*/
+/*a = printf("hola\n");
 printf("%d\n", a);
 a = _printf("hola\n");
 _printf("%d\n", a);
@@ -68,6 +68,8 @@ printf("1 + 1\n");
 
 _printf("#$%%hola\n");
 printf("#$%%hola\n");
-
+*/
+_printf("hola\n");
+_printf("%");
 return (0);
 }

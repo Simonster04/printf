@@ -37,43 +37,41 @@ int _printf(const char *format, ...)
 			arg = va_arg(valist, int);
 			write(1, &arg, 1);
 			i++;
-			bytes += 1;
 			break;
 			case 's':
 			s = va_arg(valist, unsigned char*);
 				if (s)
 				{
-				for (bytes = 0; s[bytes] != '\0'; bytes++)
+				for (bytes = 0; s[bytes]; bytes++)
 					write(1, &s[bytes], 1);
 				}
 				else
 				{
 					write(1, &null, 1);
 				}
+			bytes -= 1;
 			i++;
 			break;
 			case '%':
 			arg = '%';
 				write(1, &arg, 1);
 			i++;
-			bytes += 1;
 			break;
 			case '\0':
-			bytes -= 1;
+			bytes -= 2;
 			break;
 			default:
 			arg = '%';
 			write(1, &arg, 1);
-			bytes++;
 			break;
 			}
 		}
 		else
 		{
 			write(1, &format[i], 1);
-			bytes += 1;
 		}
+			bytes += 1;
 	}
 	va_end(valist);
-	return (bytes - 1);
+	return (bytes);
 }
