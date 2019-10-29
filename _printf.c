@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			arg = va_arg(valist, int);
 			write(1, &arg, 1);
 			i++;
-			bytes +=1;
+			bytes += 1;
 			break;
 			case 's':
 			s = va_arg(valist, unsigned char*);
@@ -63,7 +63,8 @@ int _printf(const char *format, ...)
 			break;
 			default:
 			arg = '%';
-                                write(1, &arg, 1);
+			write(1, &arg, 1);
+			bytes++;
 			break;
 			}
 		}
