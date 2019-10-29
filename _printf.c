@@ -60,6 +60,7 @@ int _printf(const char *format, ...)
 			bytes++;
 			break;
 			case '\0':
+			bytes -= 1;
 			break;
 			default:
 			arg = '%';
