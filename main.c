@@ -8,7 +8,9 @@ int main ()
 a = printf("hola\n");
 printf("%d\n", a);
 a = _printf("hola\n");
-_printf("%d\n", a);
+_printf("%i\n", a);
+_printf("%d\n", 56);
+_printf("%i\n", -78);
 _printf("hola %c\n", 'H');
 printf("hola %c\n", 'H');
 _printf("%c\n", 'O');

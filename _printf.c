@@ -50,6 +50,11 @@ int _printf(const char *format, ...)
 				}
 			i++;
 			break;
+			case 'd': case 'i':
+			arg = va_arg(valist, int);
+			bytes += print_number(arg);
+			i++;
+			break;
 			case '%':
 			arg = '%';
 				_putchar(arg);
