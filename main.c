@@ -74,9 +74,11 @@ printf("#$%%hola\n");
 _printf("hola\n");
 _printf("%");
 */
-_printf("%s\n", "hola");
+/*_printf("%s\n", "hola");
 _printf("%s\n", "");
-_printf("%c\n", 'H');
+_printf("%c\n", 'H');*/
 _printf("%%");
+_printf("hola");
 return (0);
+
 }
