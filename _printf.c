@@ -1,6 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
-#include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include "holberton.h"
@@ -49,7 +47,6 @@ int _printf(const char *format, ...)
 				{
 					write(1, &null, 1);
 				}
-			bytes -= 1;
 			i++;
 			break;
 			case '%':
