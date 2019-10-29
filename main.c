@@ -3,7 +3,7 @@
 
 int main()
 {
-/*
+
 int a = 0;
 
 a = _printf("hola\n");
@@ -28,7 +28,7 @@ printf("%c%s", 'L', "C y S juntos\n");
 
 _printf("hola %c mundo\n", 'Y');
 printf("hola %c mundo\n", 'Y');
-*/
+
 
 _printf("%e\n");
 _printf("%c%c\n", 'H');
