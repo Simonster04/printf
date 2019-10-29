@@ -15,7 +15,8 @@ int _printf(const char *format, ...)
 	va_list valist;
 	int i, bytes = 0;
 	char arg = '\0';
-	unsigned char *s = 0, null = 0;
+	unsigned char *s = 0;
+	char *s_null = "(null)";
 
 	if (!format)
 	{return (-1); }
@@ -46,7 +47,8 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					_putchar(null);
+				for (bytes = 0; s_null[bytes]; bytes++)
+					_putchar(s_null[bytes]);
 				}
 			i++;
 			break;
