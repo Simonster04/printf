@@ -77,7 +77,6 @@ int _printf(const char *format, ...)
 			bytes++;
 		}
 	}
-printf("bytes: %d", bytes);
 	va_end(valist);
 	return (bytes);
 }
