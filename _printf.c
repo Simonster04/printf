@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 {
 	va_list valist;
 	int i = 0, bytes = 0;
-	char arg, *s, percent = '%';
+	char arg, *s;
 
 	if (format == NULL)
 	{return (-1); }
@@ -59,7 +59,6 @@ int _printf(const char *format, ...)
 			bytes += 1;
 			break;
 			default:
-			/*write(1, &percent, 1);*/
 			break;
 			}
 		}
