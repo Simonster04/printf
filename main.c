@@ -26,9 +26,11 @@ _printf("%c%s", 'L', "C y S juntos\n");
 printf("%c%s", 'L', "C y S juntos\n");
 
 
-_printf("hola %c mundo\n", 'Y');
+_printf("hola %   c mundo\n", 'Y');
 printf("hola %c mundo\n", 'Y');
 
+_printf("hola %s mundo\n", "");
+printf("hola %s mundo\n", "");
 
 _printf("%e\n");
 _printf("%c%c\n", 'H');
