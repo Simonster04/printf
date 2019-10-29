@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * _printf - produces output according to a format
  * @format: char with the specific format to be printed
@@ -36,7 +36,6 @@ int _printf(const char *format, ...)
 			arg = va_arg(valist, int);
 			_putchar(arg);
 			i++;
-			bytes++;
 			break;
 			case 's':
 			s = va_arg(valist, unsigned char*);
@@ -50,6 +49,7 @@ int _printf(const char *format, ...)
 				for (bytes = 0; s_null[bytes]; bytes++)
 					_putchar(s_null[bytes]);
 				}
+			bytes--;
 			i++;
 			break;
 			case 'd': case 'i':
@@ -61,7 +61,6 @@ int _printf(const char *format, ...)
 			arg = '%';
 				_putchar(arg);
 			i++;
-			bytes++;
 			break;
 			case '\0':
 			bytes -= 1;
@@ -69,7 +68,6 @@ int _printf(const char *format, ...)
 			default:
 			arg = '%';
 			_putchar(arg);
-			bytes++;
 			break;
 			}
 		}
@@ -79,6 +77,7 @@ int _printf(const char *format, ...)
 			bytes++;
 		}
 	}
+printf("bytes: %d", bytes);
 	va_end(valist);
 	return (bytes);
 }
