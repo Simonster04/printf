@@ -10,8 +10,7 @@
 int print_number(int n)
 {
 
-	unsigned int temp;
-	int bytes = 0;
+	unsigned int temp, bytes = 0;
 
 	if (n >= 0)
 	{
@@ -19,17 +18,17 @@ int print_number(int n)
 	}
 	else
 	{
+		bytes += 1;
 		temp = n * -1;
 		_putchar('-');
 	}
 
 	if (temp / 10)
 	{
-		bytes += 1;
 		print_number(temp / 10);
 	}
 
 	_putchar((temp % 10) + '0');
-
+	bytes += 1;
 	return (bytes);
 }
