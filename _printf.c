@@ -1,9 +1,6 @@
-
-#include <unistd.h>
 #include <stdarg.h>
-#include <stdlib.h>
 #include "holberton.h"
-#include <stdio.h>
+
 /**
  * _printf - produces output according to a format
  * @format: char with the specific format to be printed
@@ -13,11 +10,11 @@
 
 int _printf(const char *format, ...)
 {
-	va_list valist;
-	int i, bytes = 0;
 	char arg = '\0';
+	int i, num, bytes = 0;
 	unsigned char *s = 0;
-	char *s_null = "(null)";
+	const char *s_null = "(null)";
+	va_list valist;
 
 	if (!format)
 	{return (-1); }
@@ -29,8 +26,6 @@ int _printf(const char *format, ...)
 		{return (-1); }
 		if (format[i] == '%')
 		{
-			while (format[i + 1] == ' ')
-			{i++; }
 			switch (format[i + 1])
 			{
 			case 'c':
@@ -54,17 +49,18 @@ int _printf(const char *format, ...)
 			i++;
 			break;
 			case 'd': case 'i':
-			arg = va_arg(valist, int);
-			bytes += print_number(arg);
+			num = va_arg(valist, int);
+			bytes += print_number(num);
+			bytes--;
 			i++;
 			break;
 			case '%':
 			arg = '%';
-				_putchar(arg);
+			_putchar(arg);
 			i++;
 			break;
 			case '\0':
-			bytes -= 1;
+			bytes -= 2;
 			break;
 			default:
 			arg = '%';
@@ -75,10 +71,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
-			bytes++;
 		}
+	bytes++;
 	}
-printf("\nBytes: %s", bytes);
 	va_end(valist);
 	return (bytes);
 }

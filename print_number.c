@@ -4,13 +4,14 @@
  * print_number - prints an integer.
  * @n: The character to print
  *
- * Return: void.
+ * Return: amount of bytes.
  */
 
 int print_number(int n)
 {
 
-	unsigned int temp, bytes = 0;
+	int bytes = 0;
+	unsigned int temp;
 
 	if (n >= 0)
 	{
@@ -25,7 +26,7 @@ int print_number(int n)
 
 	if (temp / 10)
 	{
-		print_number(temp / 10);
+		bytes += print_number(temp / 10);
 	}
 
 	_putchar((temp % 10) + '0');
