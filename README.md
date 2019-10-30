@@ -31,13 +31,9 @@ It was compilate with `gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c`.
 
 **int main ()**
 
-**{**
+**{ _printf("Hello %s", "Holberton");**
 
-**_printf("Hello %s", "Holberton");**
-
-**}**
-
-**return(0);**
+**return(0); }**
 
 Output: 
 
