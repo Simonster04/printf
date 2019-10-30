@@ -11,9 +11,9 @@
 int _printf(const char *format, ...)
 {
 	va_list valist;
-	char arg = '\0';
+	char arg = '\0', *n = "(null)";
 	int i, x, num = 0, bytes = 0;
-	unsigned char  *s = 0, *n = 0;
+	unsigned char  *s = 0;
 
 	if (!format)
 	{return (-1); }
@@ -47,6 +47,7 @@ int _printf(const char *format, ...)
 				{
 					for (x = 0; n[x]; x++)
 					{      	_putchar(n[x]);
+						bytes++;
 					}
 				}
 			bytes--;
