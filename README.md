@@ -29,11 +29,15 @@ It was compilate with `gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c`.
 
 ## Example
 
-**int main ()
+**int main ()**
 
-_printf("Hello %s", "Holberton");
+**{**
 
-return(0);**
+**_printf("Hello %s", "Holberton");
+
+**}**
+
+**return(0);**
 
 Output: 
 
