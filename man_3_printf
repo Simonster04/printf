@@ -44,6 +44,6 @@ A '%' is written. No argument is converted. The complete conversion specificatio
 .SH SEE ALSO
 .I printf(1).
 .SH BUGS
-Code such as printf(foo); often indicates a bug, since foo may contain a % character. If foo comes from untrusted user input, it may contain %n, causing the printf() call to write to memory and creating a security hole.
+Code such as _printf(foo); often indicates a bug, since foo may contain a % character. If foo comes from untrusted user input, it may contain %n, causing the printf() call to write to memory and creating a security hole.
 .SH AUTHOR
 Alejandro Arbelaez and Simon Parra from Holberton School.
