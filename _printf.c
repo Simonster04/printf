@@ -32,6 +32,7 @@ int _printf(const char *format, ...)
 			case 'c':
 			arg = va_arg(valist, int);
 			_putchar(arg);
+			bytes++;
 			i++;
 			break;
 			case 's':
@@ -50,32 +51,32 @@ int _printf(const char *format, ...)
 						bytes++;
 					}
 				}
-			bytes--;
 			i++;
 			break;
 			case 'd': case 'i':
 			num = va_arg(valist, int);
 			bytes += print_number(num);
-			bytes--;
 			i++;
 			break;
 			case '%':
 			_putchar('%');
+			bytes++;
 			i++;
 			break;
 			case '\0':
-			bytes = -2;
+			bytes = -1;
 			break;
 			default:
 			_putchar('%');
+			bytes++;
 			break;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
+			bytes++;
 		}
-	bytes++;
 	}
 	va_end(valist);
 	return (bytes);
