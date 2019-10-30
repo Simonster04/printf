@@ -1,40 +1,35 @@
-#include <stdarg.h>
 #include "holberton.h"
 
 /**
- * _printf - produces output according to a format
- * @format: char with the specific format to be printed
+ * print_number - prints an integer.
+ * @n: The character to print
  *
- * Return: 0 on success.
+ * Return: amount of bytes.
  */
 
-int _printf(const char *format, ...)
+int print_number(int n)
 {
-	va_list valist;
-	int i, bytes = 0;
 
-	if (!format)
-	{return (-1); }
+	int bytes = 0;
+	unsigned int temp;
 
-	va_start(valist, format);
-
-	for (i = 0; format[i]; i++)
+	if (n >= 0)
 	{
-		if (!format[i])
-		{return (-1); }
-		if (format[i] == '%')
-		{
-			while (format[i + 1] == ' ')
-			{i++; }
-			bytes += flags(format[i + 1], &valist);
-			i++;
-		}
-		else
-		{
-			_putchar(format[i]);
-			bytes++;
-		}
+		temp = n;
 	}
-	va_end(valist);
+	else
+	{
+		bytes += 1;
+		temp = n * -1;
+		_putchar('-');
+	}
+
+	if (temp / 10)
+	{
+		bytes += print_number(temp / 10);
+	}
+
+	_putchar((temp % 10) + '0');
+	bytes += 1;
 	return (bytes);
 }
