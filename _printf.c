@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdarg.h>
 #include "holberton.h"
 
@@ -15,6 +14,7 @@ int _printf(const char *format, ...)
 	int i, num, bytes = 0;
 	unsigned char  *s = 0;
 	va_list valist;
+	const char *s_null = "(null)";
 
 	if (!format)
 	{return (-1); }
@@ -40,11 +40,13 @@ int _printf(const char *format, ...)
 			s = va_arg(valist, unsigned char*);
 				if (s)
 				{
-				bytes += _puts(s);
+				for (bytes = 0; s[bytes]; bytes++)
+					_putchar(s[bytes]);
 				}
 				else
 				{
-				bytes += _puts((unsigned char*)"null");
+				for (bytes = 0; s_null[bytes]; bytes++)
+					_putchar(s_null[bytes]);
 				}
 			bytes--;
 			i++;
