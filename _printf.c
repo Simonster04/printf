@@ -10,10 +10,10 @@
 
 int _printf(const char *format, ...)
 {
-	char arg = '\0';
-	int i, x, num, bytes = 0;
-	unsigned char  *s = 0;
 	va_list valist;
+	char arg = '\0';
+	int i, x, num = 0, bytes = 0;
+	unsigned char  *s = 0;
 	const char *s_null = "(null)";
 
 	if (!format)
@@ -33,7 +33,6 @@ int _printf(const char *format, ...)
 			case 'c':
 			arg = va_arg(valist, int);
 			_putchar(arg);
-			bytes--;
 			i++;
 			break;
 			case 's':
@@ -41,14 +40,17 @@ int _printf(const char *format, ...)
 				if (s)
 				{
 				for (x = 0; s[x]; x++)
-					_putchar(s[x]);
+				{	_putchar(s[x]);
 					bytes++;
+				}
 				}
 				else
 				{
 				for (x = 0; s_null[x]; x++)
+				{
 					_putchar(s_null[x]);
 					bytes++;
+				}
 				}
 			bytes--;
 			i++;
