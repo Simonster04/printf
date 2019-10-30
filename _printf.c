@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list valist;
 	char arg = '\0';
 	int i, x, num = 0, bytes = 0;
-	unsigned char  *s = 0;
+	unsigned char  *s = 0, *n = 0;
 
 	if (!format)
 	{return (-1); }
@@ -38,10 +38,16 @@ int _printf(const char *format, ...)
 			s = va_arg(valist, unsigned char*);
 				if (s)
 				{
-				for (x = 0; s[x]; x++)
-				{	_putchar(s[x]);
-					bytes++;
+					for (x = 0; s[x]; x++)
+                                	{	 _putchar(s[x]);
+                                        	bytes++;
+                                	}
 				}
+				else
+				{
+					for (x = 0; n[x]; x++)
+					{      	_putchar(n[x]);
+					}
 				}
 			bytes--;
 			i++;
