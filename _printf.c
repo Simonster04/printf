@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdarg.h>
 #include "holberton.h"
 
@@ -12,8 +13,7 @@ int _printf(const char *format, ...)
 {
 	char arg = '\0';
 	int i, num, bytes = 0;
-	unsigned char *s = 0;
-	const char *s_null = "(null)";
+	unsigned char  *s = 0;
 	va_list valist;
 
 	if (!format)
@@ -33,19 +33,18 @@ int _printf(const char *format, ...)
 			case 'c':
 			arg = va_arg(valist, int);
 			_putchar(arg);
+			bytes--;
 			i++;
 			break;
 			case 's':
 			s = va_arg(valist, unsigned char*);
 				if (s)
 				{
-				for (bytes = 0; s[bytes]; bytes++)
-					_putchar(s[bytes]);
+				bytes += _puts(s);
 				}
 				else
 				{
-				for (bytes = 0; s_null[bytes]; bytes++)
-					_putchar(s_null[bytes]);
+				bytes += _puts((unsigned char*)"null");
 				}
 			bytes--;
 			i++;
@@ -57,16 +56,14 @@ int _printf(const char *format, ...)
 			i++;
 			break;
 			case '%':
-			arg = '%';
-			_putchar(arg);
+			_putchar('%');
 			i++;
 			break;
 			case '\0':
 			bytes -= 2;
 			break;
 			default:
-			arg = '%';
-			_putchar(arg);
+			_putchar('%');
 			break;
 			}
 		}
