@@ -27,6 +27,12 @@ The _printf() function produce output according to a format as described below. 
 
 It was compilate with `gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c`.
 
+## Example
+
+_printf("Hello %s", "Holberton");
+
+Output: Hello Holberton
+
 ## Authors
 
 Alejandro Arbelaez and Simon Parra.
