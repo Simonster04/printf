@@ -36,7 +36,8 @@ _printf("Hello %s", "Holberton");
 return(0);**
 
 Output: 
-\`Hello Holberton`
+
+`Hello Holberton`
 
 ## Authors
 
