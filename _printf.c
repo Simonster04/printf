@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
 	char arg = '\0';
 	int i, x, num = 0, bytes = 0;
 	unsigned char  *s = 0;
-	const char *s_null = "(null)";
 
 	if (!format)
 	{return (-1); }
@@ -44,14 +43,6 @@ int _printf(const char *format, ...)
 					bytes++;
 				}
 				}
-				else
-				{
-				for (x = 0; s_null[x]; x++)
-				{
-					_putchar(s_null[x]);
-					bytes++;
-				}
-				}
 			bytes--;
 			i++;
 			break;
@@ -66,7 +57,7 @@ int _printf(const char *format, ...)
 			i++;
 			break;
 			case '\0':
-			bytes -= 2;
+			bytes = -2;
 			break;
 			default:
 			_putchar('%');
