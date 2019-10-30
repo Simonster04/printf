@@ -33,7 +33,7 @@ It was compilate with `gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c`.
 
 **{**
 
-**_printf("Hello %s", "Holberton");
+**_printf("Hello %s", "Holberton");**
 
 **}**
 
