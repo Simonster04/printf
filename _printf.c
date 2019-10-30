@@ -32,8 +32,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
-			bytes++;
 		}
+	bytes++;
 	}
 	va_end(valist);
 	return (bytes);
