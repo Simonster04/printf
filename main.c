@@ -3,6 +3,7 @@
 #include <string.h>
 int main ()
 {
+/*
  int a = 0;
 
 a = printf("hola\n");
@@ -75,10 +76,14 @@ _printf("hola\n");
 _printf("%");
 
 _printf("%s\n", "hola");
-_printf("%s\n", "");
-_printf("%c\n", 'H');
+
+printf("%s\n", "");
+_printf("%c", 'H');
 _printf("%%");
-_printf("hola");
+_printf("hola");*/
+
+_printf("hola %s", "");
+
 return (0);
 
 }

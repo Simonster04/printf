@@ -11,10 +11,10 @@
 int _printf(const char *format, ...)
 {
 	char arg = '\0';
-	int i, num, bytes = 0;
-	unsigned char *s = 0;
-	const char *s_null = "(null)";
+	int i, x, num, bytes = 0;
+	unsigned char  *s = 0;
 	va_list valist;
+	const char *s_null = "(null)";
 
 	if (!format)
 	{return (-1); }
@@ -33,19 +33,22 @@ int _printf(const char *format, ...)
 			case 'c':
 			arg = va_arg(valist, int);
 			_putchar(arg);
+			bytes--;
 			i++;
 			break;
 			case 's':
 			s = va_arg(valist, unsigned char*);
 				if (s)
 				{
-				for (bytes = 0; s[bytes]; bytes++)
-					_putchar(s[bytes]);
+				for (x = 0; s[x]; x++)
+					_putchar(s[x]);
+					bytes++;
 				}
 				else
 				{
-				for (bytes = 0; s_null[bytes]; bytes++)
-					_putchar(s_null[bytes]);
+				for (x = 0; s_null[x]; x++)
+					_putchar(s_null[x]);
+					bytes++;
 				}
 			bytes--;
 			i++;
@@ -57,16 +60,14 @@ int _printf(const char *format, ...)
 			i++;
 			break;
 			case '%':
-			arg = '%';
-			_putchar(arg);
+			_putchar('%');
 			i++;
 			break;
 			case '\0':
 			bytes -= 2;
 			break;
 			default:
-			arg = '%';
-			_putchar(arg);
+			_putchar('%');
 			break;
 			}
 		}
