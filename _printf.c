@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	char arg = '\0';
-	int i, num, bytes = 0;
+	int i, x, num, bytes = 0;
 	unsigned char  *s = 0;
 	va_list valist;
 	const char *s_null = "(null)";
@@ -40,13 +40,15 @@ int _printf(const char *format, ...)
 			s = va_arg(valist, unsigned char*);
 				if (s)
 				{
-				for (bytes = 0; s[bytes]; bytes++)
-					_putchar(s[bytes]);
+				for (x = 0; s[x]; x++)
+					_putchar(s[x]);
+					bytes++;
 				}
 				else
 				{
-				for (bytes = 0; s_null[bytes]; bytes++)
-					_putchar(s_null[bytes]);
+				for (x = 0; s_null[x]; x++)
+					_putchar(s_null[x]);
+					bytes++;
 				}
 			bytes--;
 			i++;
